@@ -35,11 +35,11 @@ if (Yii::$app->controller->action->id == 'update' && $model->DistrictID !== null
         <div class="col-6">
             <?= $form->field($model, 'countryId')->dropDownList(ArrayHelper::map(LocationCountryTable::getAllCountry(Yii::$app->language), 'id', 'CommonName'), [
                 'prompt' => LocationModule::t('location', 'Chọn quốc gia...'),
-                'class' => 'form-control load-data',
-                'self-key' => 'country',
-                'url-load-data' => Url::toRoute(['/location/location-province/get-province-by-country']),
-                'element-load-data' => '#select-province',
-                'method-load' => 'GET'
+                'class' => 'form-control load-data-on-change',
+                'load-data-key' => 'country',
+                'load-data-url' => Url::toRoute(['/location/location-province/get-province-by-country']),
+                'load-data-element' => '#select-province',
+                'load-data-method' => 'GET'
             ])->label('Quốc gia') ?></div>
         <div class="col-6">
             <?php
@@ -50,11 +50,11 @@ if (Yii::$app->controller->action->id == 'update' && $model->DistrictID !== null
                 'options' => [
                     'prompt' => LocationModule::t('location', 'Chọn tỉnh/thành phố...'),
                     'id' => 'select-province',
-                    'class' => 'form-control load-data',
-                    'self-key' => 'province',
-                    'url-load-data' => Url::toRoute(['/location/location-district/get-district-by-province']),
-                    'element-load-data' => '#select-district',
-                    'method-load' => 'GET'
+                    'class' => 'form-control load-data-on-change',
+                    'load-data-key' => 'province',
+                    'load-data-url' => Url::toRoute(['/location/location-district/get-district-by-province']),
+                    'load-data-element' => '#select-district',
+                    'load-data-method' => 'GET'
                 ],
                 'label' => 'Tỉnh/Thành phố'
             ]);

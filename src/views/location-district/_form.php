@@ -32,11 +32,12 @@ if ($model->ProvinceId != null) $model->countryId = $model->provinceHasOne->coun
         <div class="col-6">
             <?= $form->field($model, 'countryId')->dropDownList(ArrayHelper::map(LocationCountryTable::getAllCountry(Yii::$app->language), 'id', 'CommonName'), [
                 'prompt' => LocationModule::t('location', 'Chọn quốc gia...'),
-                'class' => 'form-control load-data',
-                'url-load-data' => Url::toRoute(['/location/location-province/get-province-by-country']),
-                'element-load-data' => '#select-province',
-                'self-key' => 'country',
-                'method-load' => 'GET'
+                'class' => 'form-control load-data-on-change',
+                'load-data-url' => Url::toRoute(['/location/location-province/get-province-by-country']),
+                'load-data-element' => '#select-province',
+                'load-data-key' => 'country',
+                'load-data-method' => 'GET',
+                'load-data-callback' => '$("#select-province").select2();'
             ])->label('Quốc gia') ?>
         </div>
         <div class="col-6">
@@ -44,8 +45,12 @@ if ($model->ProvinceId != null) $model->countryId = $model->provinceHasOne->coun
             echo common\widgets\Select2::widget([
                 'model' => $model,
                 'attribute' => 'ProvinceId',
-                'data' => ArrayHelper::map(LocationProvinceTable::getProvinceByCountry(), 'id', 'name'),
-                'label' => 'Tỉnh/Thành phố'
+                'data' => ArrayHelper::map(LocationProvinceTable::getProvinceByCountry($model->countryId), 'id', 'name'),
+                'label' => 'Tỉnh/Thành phố',
+                'options' => [
+                    'prompt' => 'Chọn tỉnh/thành phố...',
+                    'id' => 'select-province'
+                ]
             ]) ?>
         </div>
         <div class="col-6">

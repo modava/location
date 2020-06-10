@@ -96,24 +96,7 @@ class LocationProvince extends LocationProvinceTable
      */
     public function attributeLabels()
     {
-        return [
-            'id' => LocationModule::t('location', 'ID'),
-            'name' => LocationModule::t('location', 'Name'),
-            'slug' => LocationModule::t('location', 'Slug'),
-            'Type' => LocationModule::t('location', 'Type'),
-            'TelephoneCode' => LocationModule::t('location', 'Telephone Code'),
-            'ZipCode' => LocationModule::t('location', 'Zip Code'),
-            'CountryId' => LocationModule::t('location', 'Country ID'),
-            'CountryCode' => LocationModule::t('location', 'Country Code'),
-            'SortOrder' => LocationModule::t('location', 'Sort Order'),
-            'status' => LocationModule::t('location', 'Status'),
-            'language' => LocationModule::t('location', 'Language'),
-            'IsDeleted' => LocationModule::t('location', 'Is Deleted'),
-            'created_at' => LocationModule::t('location', 'Created At'),
-            'updated_at' => LocationModule::t('location', 'Updated At'),
-            'created_by' => LocationModule::t('location', 'Created By'),
-            'updated_by' => LocationModule::t('location', 'Updated By'),
-        ];
+        return array_merge(parent::attributeLabels(), []);;
     }
 
     /**
