@@ -172,11 +172,25 @@ class LocationDistrictController extends MyController
         if (Yii::$app->request->isAjax) {
             Yii::$app->response->format = Response::FORMAT_JSON;
             $province = Yii::$app->request->get('province');
+            $option_tag = Yii::$app->request->get('option_tag', false);
             $data = LocationDistrictTable::getDistrictByProvince($province, Yii::$app->language);
-            return [
-                'code' => 200,
-                'data' => ArrayHelper::map($data, 'id', 'name')
-            ];
+            if($option_tag === false) {
+                return [
+                    'code' => 200,
+                    'data' => ArrayHelper::map($data, 'id', 'name')
+                ];
+            } else {
+                $options = '';
+                foreach (ArrayHelper::map($data, 'id', 'name') as $i => $row) {
+                    $options .= Html::tag('option', $row, [
+                        'value' => $i
+                    ]);
+                }
+                return [
+                    'code' => 200,
+                    'data' => $options
+                ];
+            }
         }
     }
 

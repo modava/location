@@ -171,11 +171,25 @@ class LocationWardController extends MyController
         if (Yii::$app->request->isAjax) {
             Yii::$app->response->format = Response::FORMAT_JSON;
             $district = Yii::$app->request->get('district');
-            $data = ArrayHelper::map(LocationWardTable::getWardByDistrict($district), 'id', 'name');
-            return [
-                'code' => 200,
-                'data' => $data
-            ];
+            $option_tag = Yii::$app->request->get('option_tag', false);
+            $data = LocationWardTable::getWardByDistrict($district);
+            if ($option_tag === false) {
+                return [
+                    'code' => 200,
+                    'data' => ArrayHelper::map($data, 'id', 'name')
+                ];
+            } else {
+                $options = '';
+                foreach (ArrayHelper::map($data, 'id', 'name') as $i => $row) {
+                    $options .= Html::tag('option', $row, [
+                        'value' => $i
+                    ]);
+                }
+                return [
+                    'code' => 200,
+                    'data' => $options
+                ];
+            }
         }
     }
 
