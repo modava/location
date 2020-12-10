@@ -2,13 +2,11 @@
 
 namespace modava\location\models\table;
 
-use cheatsheet\Time;
-use modava\location\LocationModule;
+use backend\components\MyModel;
 use modava\location\models\query\LocationProvinceQuery;
 use Yii;
-use yii\db\ActiveRecord;
 
-class LocationProvinceTable extends \yii\db\ActiveRecord
+class LocationProvinceTable extends MyModel
 {
     const STATUS_DISABLED = 0;
     const STATUS_PUBLISHED = 1;

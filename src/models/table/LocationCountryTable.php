@@ -2,12 +2,12 @@
 
 namespace modava\location\models\table;
 
+use backend\components\MyModel;
 use cheatsheet\Time;
 use modava\location\models\query\LocationCountryQuery;
 use Yii;
-use yii\db\ActiveRecord;
 
-class LocationCountryTable extends \yii\db\ActiveRecord
+class LocationCountryTable extends MyModel
 {
     const STATUS_DISABLED = 0;
     const STATUS_PUBLISHED = 1;

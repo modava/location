@@ -2,12 +2,11 @@
 
 namespace modava\location\models\table;
 
-use cheatsheet\Time;
+use backend\components\MyModel;
 use modava\location\models\query\LocationWardQuery;
 use Yii;
-use yii\db\ActiveRecord;
 
-class LocationWardTable extends \yii\db\ActiveRecord
+class LocationWardTable extends MyModel
 {
     const STATUS_DISABLED = 0;
     const STATUS_PUBLISHED = 1;
