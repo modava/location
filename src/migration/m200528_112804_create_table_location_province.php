@@ -46,7 +46,7 @@ class m200528_112804_create_table_location_province extends Migration
         $check_rows = Yii::$app->db->createCommand('SELECT id FROM location_province')->queryOne();
         if($check_rows === false){
             $this->execute("INSERT INTO `location_province` (`id`, `name`, `Type`, `TelephoneCode`, `ZipCode`, `CountryId`, `CountryCode`, `SortOrder`, `status`, `IsDeleted`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
-(1, 'Hà Nội', 'Tỉnh', 43, '', 237, 'VN', 2, 1, 0, NULL, 1535442629, 1, 1),
+(1, 'Hà Nội', 'Thành Phố', 43, '', 237, 'VN', 2, 1, 0, NULL, 1535442629, 1, 1),
 (2, 'Hà Giang', 'Tỉnh', 219, NULL, 237, 'VN', 25, 0, 0, NULL, NULL, 1, 1),
 (4, 'Cao Bằng', 'Tỉnh', 710, NULL, 237, 'VN', 17, 0, 0, NULL, NULL, 1, 1),
 (6, 'Bắc Kạn', 'Tỉnh', 281, NULL, 237, 'VN', 7, 0, 0, NULL, NULL, 1, 1),
