@@ -109,7 +109,7 @@ class m200528_112804_create_table_location_province extends Migration
 (94, 'Sóc Trăng', 'Tỉnh', 79, NULL, 237, 'VN', 54, 0, 0, NULL, NULL, 1, 1),
 (95, 'Bạc Liêu', 'Tỉnh', 240, NULL, 237, 'VN', 8, 0, 0, NULL, NULL, 1, 1),
 (96, 'Cà Mau', 'Tỉnh', 780, NULL, 237, 'VN', 15, 0, 0, NULL, NULL, 1, 1),
-(97, 'Nước Ngoài', 'Khác', NULL, NULL, 237, NULL, 1, 1, 0, NULL, NULL, 1, 1);");
+(97, 'Nước Ngoài', NULL, NULL, NULL, 237, NULL, 1, 1, 0, NULL, NULL, 1, 1);");
         }
     }
 
